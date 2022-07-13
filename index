@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ロボ単アプリ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+
+</head>
+<body>
+<div id="particles-js"></div>
+<div id="wrapper">
+   <div class="title-logo">
+    <img src="https://drive.google.com/uc?id=1jlubkDljtEKNAUaP3XvzbpnIdUwRyT1-">
+  </div>
+  <div class="sub-text">カードをタップして答えをチェック！</div>
+    <div id="card">
+    <div id="card-front"></div>
+    <div id="card-back"></div>
+  </div>
+  <div id="btn">つぎのカード</div>
+  <div class="sub-help">カードをタップ：「↑」で答えチェック<br>「つぎのカード」ボタン：「→」で次のカード</div>
+<!--/wrapper--></div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http:"></script>
+</body>
+</html>
