@@ -86,6 +86,7 @@ html {
   #card-back {
     background: #00aaff;
     transform: rotateY(180deg);
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
   }
   .open {
     transform: rotateY(180deg);
