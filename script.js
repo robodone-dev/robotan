@@ -45,9 +45,9 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
       // f: 70
       // n: 78
       // console.log(e.keyCode);
-      if (e.keyCode === 70) {
+      if (e.keyCode === 38) {
         flip();
-      } else if (e.keyCode === 78) {
+      } else if (e.keyCode === 39) {
         next();
       }
     });
