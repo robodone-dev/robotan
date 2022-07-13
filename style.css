@@ -79,7 +79,7 @@ html {
     backface-visibility: hidden;
   }
   #card-front {
-    background: #EFF4FD;
+    background: #faf0e6;
     color: #333;
     box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
   }
