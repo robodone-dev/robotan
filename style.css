@@ -68,8 +68,25 @@ html {
     perspective: 100px;
     transform-style: preserve-3d;
     transition: transform .8s;
-
   }
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+    #card {
+    margin: 20px auto 50px;
+    width: 250px;
+    height: 80px;
+    cursor: pointer;
+    font-size: 26px;
+    font-weight:bold;
+    line-height: 80px;
+    perspective: 100px;
+    transform-style: preserve-3d;
+    transition: transform .8s;
+  }
+  
+}
+
+
   #card-front, #card-back {
     display: block;
     width: 100%;
@@ -82,13 +99,11 @@ html {
     background: #faf0e6;
     color: #333;
     box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
-
   }
   #card-back {
     background: #00aaff;
     transform: rotateY(180deg);
     box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
-    
   }
   .open {
     transform: rotateY(180deg);
@@ -124,6 +139,4 @@ html,body{
 	z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
 	width:100%;
 	height: 100%;
-  transform: translate3d(0,0,1px);/*z-indexがうまく効かない対応
 }
-
