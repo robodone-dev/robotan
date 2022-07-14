@@ -3,13 +3,13 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
 (function() {
     'use strict';
 
-    var words = [
-      {'en': 'Python', 'ja': 'パイソン' },
-      {'en': 'Run', 'ja': '実行' },
-      {'en': 'Debug', 'ja': 'デバッグ' },
-      {'en': 'Knowledge', 'ja': 'ナレッジ' },
-      {'en': 'Remove', 'ja': '削除' }
-    ];
+//     var words = [
+//       {'en': 'Python', 'ja': 'パイソン' },
+//       {'en': 'Run', 'ja': '実行' },
+//       {'en': 'Debug', 'ja': 'デバッグ' },
+//       {'en': 'Knowledge', 'ja': 'ナレッジ' },
+//       {'en': 'Remove', 'ja': '削除' }
+//     ];
 
     var card = document.getElementById('card');
     var cardFront = document.getElementById('card-front');
@@ -21,13 +21,13 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
     btn.addEventListener('click', function() {
       next();
     });
-
+    
     function next() {
       if (card.className === 'open') {
-        card.addEventListener('transitionend', setCard);
+        card.addEventListener('transitionend', readworddata);
         flip();
       } else {
-        setCard();
+        readworddata();
       }
     }
 
@@ -37,8 +37,17 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
       cardBack.innerHTML = words[num]['ja'];
       card.removeEventListener('transitionend', setCard);
     }
+    
+    function readworddata(){
+      const url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
+      fetch(url)
+        .then(response => response.json())
+        .then(data => setCard(data))
+    }
 
-    setCard();
+    //setCard();
+    readworddata();
+    //スプレッドシートからAPIで読み込み
 
     window.addEventListener('keyup', function(e) {
       // e.keyCode
