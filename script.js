@@ -31,7 +31,7 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
       }
     }
 
-    function setCard() {
+    function setCard(words) {
       var num = Math.floor(Math.random() * words.length);
       cardFront.innerHTML = words[num]['en'];
       cardBack.innerHTML = words[num]['ja'];
