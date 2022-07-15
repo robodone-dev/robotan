@@ -24,7 +24,7 @@ particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enabl
     
     function next() {
       if (card.className === 'open') {
-        card.addEventListener('transitionend', readworddata);
+        //card.addEventListener('transitionend', readworddata);
         flip();
       } else {
         readworddata();
