@@ -1,4 +1,3 @@
-
 particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#2fff14"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.809723090737089,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":208.44356791251798,"color":"#37b4e8","opacity":0.6894671861721748,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
 
 
@@ -51,7 +50,11 @@ window.addEventListener("load", ()=>{
   
     btn.addEventListener('click', function() {
       //alert(counter.innerHTML);
-      if(counter.innerHTML > 4){
+      var totalCount = document.getElementById("total-word-count");
+      var countx = totalCount.textContent;
+      //alert(counter.innerHTML + countx);
+      
+      if(counter.innerHTML > Number(countx)){
         openModal();
       } else {
         next();
@@ -73,17 +76,22 @@ window.addEventListener("load", ()=>{
   
     function setCard(words) {
       var num = Math.floor(Math.random() * words.length);
+      var totalCount = document.getElementById("total-word-count");
+      totalCount.innerHTML = words.length;
+      
       cardFront.innerHTML = words[num]['en'];
       cardBack.innerHTML = words[num]['ja'];
       card.removeEventListener('transitionend', setCard);
     }
-    
+      
     function readworddata(){
       const url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
       fetch(url)
         .then(response => response.json())
         .then(data => setCard(data))
     }
+  
+
   
     //setCard();
     readworddata();
@@ -116,23 +124,27 @@ window.addEventListener("load", ()=>{
   
     function progress_move(n) {
         var elem = document.getElementById("myBar");
-        var width = n;
+        var width = n-1;
         //var id = setInterval(frame, 10);
 
         frame();
-
+      
         function frame() {
-          if (width >= 110) {
+          
+          var totalCount = document.getElementById("total-word-count");
+          var x = totalCount.textContent;
+          x = Number(x)
+                    
+          if (width/x*100  > 101) {
             //clearInterval(id);
-            var count_value = 0;
-            width = 0;
-            elem.style.width = width + "%";
-            elem.innerHTML = width + "%";
-            i = 0;
+            // var count_value = 0;
+            // width = 0;
+            // elem.style.width = width + "%";
+            // elem.innerHTML = width + "%";
           } else {
             //width++;
-            elem.style.width = width + "%";
-            elem.innerHTML = width + "%";
+            elem.style.width = width/x*100 + "%";
+            elem.innerHTML = Math.round(width/x*100,0) + "%";
           }
         }
     }
@@ -162,7 +174,6 @@ btnOpenModal.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
 
 function doReload() {
- 
     // reloadメソッドによりページをリロード
     window.location.reload();
 }
