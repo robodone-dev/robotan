@@ -1,8 +1,8 @@
 particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#2fff14"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.809723090737089,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":208.44356791251798,"color":"#37b4e8","opacity":0.6894671861721748,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
 
 
-let counter, btnAdd;
-let n;
+var counter, btnAdd,optionMode;
+var n;
  
 function addCount(){
     n++;
@@ -13,6 +13,7 @@ window.addEventListener("load", ()=>{
     // 起動時の処理
     counter = document.getElementById("counter");
     btnAdd = document.getElementById("btnAdd");
+
     n = 0;
  
     btnAdd.addEventListener("click", addCount);
@@ -43,6 +44,47 @@ window.addEventListener("load", ()=>{
     var cardFront = document.getElementById('card-front');
     var cardBack = document.getElementById('card-back');
     var btn = document.getElementById('btn');
+    var select1 = document.getElementById('select1');
+    var select2 = document.getElementById('select2');
+    var select3 = document.getElementById('select3');
+    var select4 = document.getElementById('select4');
+    var url;
+    var randoms = [];
+
+    select1.addEventListener('input',function(){
+      //alert("select1");
+      url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
+      readworddata(url);
+      progress_reset();
+      countReset();
+      randoms.length = 0;
+    });
+    select2.addEventListener('input',function(){
+      //alert("select2");
+      url = 'https://api.sssapi.app/tVPUcQK6fxwwSnGoliqDJ';
+      readworddata(url);
+      progress_reset();
+      countReset();
+      randoms.length = 0;
+    });
+    select3.addEventListener('input',function(){
+      //alert("select3");
+      url = 'https://api.sssapi.app/8-hJmLsQlPA1ag-99JzFJ';
+      readworddata(url);
+      progress_reset();
+      countReset();
+      randoms.length = 0;
+    });
+    select4.addEventListener('input',function(){
+      //alert("select4");
+      url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
+      readworddata(url);
+      progress_reset();
+      countReset();
+      randoms.length = 0;
+    });
+  
+  
   
     card.addEventListener('click', function() {
       flip();
@@ -69,7 +111,7 @@ window.addEventListener("load", ()=>{
         flip();
       } else {
         addCount();
-        readworddata();
+        readworddata(url);
       }
     }
 
@@ -82,14 +124,13 @@ window.addEventListener("load", ()=>{
       var tmpVal = document.getElementById("tmpVal");
       var min =0, max= Number(words.length)-1;
       var num =roopRandom(min,max);
-      
-      
+
       cardFront.innerHTML = words[num]['en'];
       cardBack.innerHTML = words[num]['ja'];
       card.removeEventListener('transitionend', setCard);
     }
   
-    var randoms = [];
+    
     function roopRandom(min,max){
       
         //randoms.push(tmpVal.innerHTML);
@@ -115,12 +156,14 @@ window.addEventListener("load", ()=>{
     } 
 
       
-    function readworddata(){
-      const url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
+    function readworddata(url){
+
+      //alert(url);
       fetch(url)
         .then(response => response.json())
         .then(data => setCard(data))
-    }
+      
+     }
   
 
   
@@ -151,6 +194,18 @@ window.addEventListener("load", ()=>{
 
     function flip() {
       card.className = card.className === '' ? 'open' : '';
+    }
+  
+    function countReset(){
+      counter = document.getElementById("counter");
+      counter.innerHTML = 0;
+      n = 0;
+    }
+  
+    function progress_reset(){
+      var elem = document.getElementById("myBar");
+      elem.style.width = 0 + "%";
+      elem.innerHTML = 0 + "%";
     }
   
     function progress_move(n) {
