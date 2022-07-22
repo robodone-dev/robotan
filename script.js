@@ -54,7 +54,7 @@ window.addEventListener("load", ()=>{
       var countx = totalCount.textContent;
       //alert(counter.innerHTML + countx);
       
-      if(counter.innerHTML > Number(countx)){
+      if(counter.innerHTML >= Number(countx)-1){
         openModal();
       } else {
         next();
@@ -75,14 +75,45 @@ window.addEventListener("load", ()=>{
 
   
     function setCard(words) {
-      var num = Math.floor(Math.random() * words.length);
+      //var num = Math.floor(Math.random() * words.length);
       var totalCount = document.getElementById("total-word-count");
       totalCount.innerHTML = words.length;
+      
+      var tmpVal = document.getElementById("tmpVal");
+      var min =0, max= Number(words.length)-1;
+      var num =roopRandom(min,max);
+      
       
       cardFront.innerHTML = words[num]['en'];
       cardBack.innerHTML = words[num]['ja'];
       card.removeEventListener('transitionend', setCard);
     }
+  
+    var randoms = [];
+    function roopRandom(min,max){
+      
+        //randoms.push(tmpVal.innerHTML);
+      
+        while(true){
+          
+          var tmp = intRandom(min, max);
+          
+          if(!randoms.includes(tmp)){
+            var reslut = tmp;
+            randoms.push(tmp);
+            //alert(randoms);
+            break;
+          }
+          
+        } 
+      //alert(randoms);
+      return reslut;
+    }
+  
+    function intRandom(min, max){
+      return Math.floor( Math.random() * (max - min + 1)) + min;
+    } 
+
       
     function readworddata(){
       const url = 'https://api.sssapi.app/ikn2OFJAdigxOScXHcTZp';
@@ -124,8 +155,7 @@ window.addEventListener("load", ()=>{
   
     function progress_move(n) {
         var elem = document.getElementById("myBar");
-        var width = n-1;
-        //var id = setInterval(frame, 10);
+        var width = n;
 
         frame();
       
@@ -133,9 +163,9 @@ window.addEventListener("load", ()=>{
           
           var totalCount = document.getElementById("total-word-count");
           var x = totalCount.textContent;
-          x = Number(x)
-                    
-          if (width/x*100  > 101) {
+          x = Number(x)-1;
+                  
+          if (width/x*100  > 100) {
             //clearInterval(id);
             // var count_value = 0;
             // width = 0;
