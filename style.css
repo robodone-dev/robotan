@@ -113,12 +113,12 @@ html {
 
 #wrapper{
 	display: flex;
-  	flex-flow: column;
+  flex-flow: column;
 	justify-content: center;
 	align-items: center;
 	text-align:center;
 	color: #fff;
-	transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0);
 }
 
 #clear_wapper{
@@ -127,6 +127,7 @@ html {
   height:200px;
   background:#000;
   z-index:5;
+  
 }
 
 /*========= particle js を描画するエリア設定 ===============*/
@@ -245,4 +246,45 @@ html,body{
   background-color: rgba(0, 0, 0, 0.6);    
   backdrop-filter: blur(3px); /* 一番下のbody領域をぼやかす */
   z-index: 5; /* z-indexの数字を0と10の間の数字にし、bodyとmodalの真ん中に位置させる */
+}
+
+/* ナビメニュー */
+
+.radio02{
+  display: flex;
+	flex-wrap: wrap;
+  justify-content:center;
+  margin:0 20px 80px 20px;
+  padding:40px 20px;
+  background:rgb(0,128,128,0.2);
+  border-radius:15px;
+}
+.radio02 input{
+	display: none;
+}
+.radio02 label{
+  position: relative;
+	display: block;
+  float:left;
+	cursor: pointer;
+	width: 130px;
+	margin:0px 5px 0px 5px;
+	padding: 2.4% 0 2.5% 0;
+  border-radius:20px;
+	background: #e5e5e5;
+	color: #555e64;
+  font-weight:900;
+	font-size: 13px;
+	text-align: center;
+	line-height: 1;
+	transition: .5s;
+}
+.radio02 label:first-of-type{
+}
+.radio02 label:last-of-type{
+	border-right: 0px;
+}
+.radio02 input[type="radio"]:checked + label {
+	background-color: #008080;
+	color: #fff;
 }
