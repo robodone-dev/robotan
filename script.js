@@ -317,16 +317,22 @@ function backgroundColor4() {
 }
 
 function cardAudio() {
-    document.getElementById('card_audio').currentTime = 0; //連続クリックに対応
-    document.getElementById('card_audio').play(); //クリックしたら音を再生
+    var cardAudio = document.getElementById('card_audio'); //連続クリックに対応
+    cardAudio.currentTime = 0;
+    cardAudio.load();
+    cardAudio.play(); //クリックしたら音を再生
 }
 
 function optionAudio() {
-    document.getElementById('option_audio').currentTime = 0; //連続クリックに対応
-    document.getElementById('option_audio').play(); //クリックしたら音を再生
+    var optionAudio = document.getElementById('option_audio'); //連続クリックに対応
+    optionAudio.currentTime = 0;
+    optionAudio.load();
+    optionAudio.play(); //クリックしたら音を再生
 }
 
 function nextAudio() {
-    document.getElementById('next_audio').currentTime = 0; //連続クリックに対応
-    document.getElementById('next_audio').play(); //クリックしたら音を再生
+    var nextAudio = document.getElementById('next_audio');
+    nextAudio.currentTime = 0; //連続クリックに対応
+    nextAudio.load();
+    nextAudio.play(); //クリックしたら音を再生
 }
