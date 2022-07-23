@@ -8,7 +8,14 @@ html {
   box-sizing: border-box;
   overflow-y: scroll; /* All browsers without overlaying scrollbars */
   -webkit-text-size-adjust: 100%; /* iOS 8+ */
+  height: 100%;/*高さを100%にして描画エリアをとる*/
 }
+
+body{
+  font-family: sans-serif;
+	height: 100%;/*高さを100%にして描画エリアをとる*/
+}
+
 
 *,
 ::before,
@@ -28,10 +35,6 @@ html {
   margin: 0;
 }
 
-.title-logo img{
-  width:20%;
-  margin:50px 30px 30px 30px;
-}
 
 .sub-text{
   color:#fff;
@@ -132,9 +135,6 @@ html {
 
 /*========= particle js を描画するエリア設定 ===============*/
 
-html,body{
-	height: 100%;/*高さを100%にして描画エリアをとる*/
-}
 
 #particles-js{ 
 	position:fixed;/*描画固定*/
@@ -147,7 +147,7 @@ html,body{
   /*background-color: #043564; */
   /*background-image: url("https://robodone-dev.github.io/robotan/WieecLF.png");*/
   background-repeat: no-repeat,repeat;
-  background-size: 64px,100%; 
+  background-size: 128px,100%; 
   background-position: 50% 6%;
 }
 
@@ -199,10 +199,14 @@ html,body{
 	bottom: 0;
   width: 0%;
   height: 30px;
-  background-color: #04AA6D;
+  background-color:#42CD97;
+
+
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
+  transition-duration: 2s;
+  transition-delay: 0.1s;
 }
 
 .show-modal {
@@ -261,8 +265,8 @@ html,body{
   display: flex;
 	flex-wrap: wrap;
   justify-content:center;
-  margin:0 20px 80px 20px;
-  padding:40px 20px;
+  margin:0 20px 40px 20px;
+  padding:25px 20px;
   background:rgb(255,255,255,0.2);
   border-radius:15px;
 }
@@ -292,6 +296,6 @@ html,body{
 	border-right: 0px;
 }
 .radio02 input[type="radio"]:checked + label {
-	background-color: #008080;
+	background-color: #42CD97FF;
 	color: #fff;
 }
