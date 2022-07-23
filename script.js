@@ -46,6 +46,9 @@ window.addEventListener("load", ()=>{
  
     btnAdd.addEventListener("click", addCount);
 });
+ 
+
+
 
 (function() {
     'use strict';
@@ -76,8 +79,12 @@ window.addEventListener("load", ()=>{
     var select2 = document.getElementById('select2');
     var select3 = document.getElementById('select3');
     var select4 = document.getElementById('select4');
+    var optionButtun = document.getElementById('optionButtunInput');
+
     var url;
     var randoms = [];
+
+
 
     select1.addEventListener('input',function(){
       //alert("select1");
@@ -91,6 +98,8 @@ window.addEventListener("load", ()=>{
       progress_reset();
       countReset();
       randoms.length = 0;
+      rokectSpeed=0;
+      document.getElementById("radio02-list").style.display ="none";
     });
     select2.addEventListener('input',function(){
       //alert("select2");
@@ -107,6 +116,8 @@ window.addEventListener("load", ()=>{
       progress_reset();
       countReset();
       randoms.length = 0;
+      rokectSpeed=0;
+      document.getElementById("radio02-list").style.display ="none";
     });
     select3.addEventListener('input',function(){
       //alert("select3");
@@ -120,6 +131,8 @@ window.addEventListener("load", ()=>{
       progress_reset();
       countReset();
       randoms.length = 0;
+      rokectSpeed=0;
+      document.getElementById("radio02-list").style.display ="none";
     });
     select4.addEventListener('input',function(){
       //alert("select4");
@@ -133,10 +146,10 @@ window.addEventListener("load", ()=>{
       progress_reset();
       countReset();
       randoms.length = 0;
+      rokectSpeed=0;
+      document.getElementById("radio02-list").style.display ="none";
     });
-  
-  
-  
+   
     card.addEventListener('click', function() {
       flip();
     });
@@ -153,9 +166,16 @@ window.addEventListener("load", ()=>{
         next();
       }
       
-      
     });
-    
+  
+    optionButtun.addEventListener('change',function(){
+      if(optionButtun.checked){
+        document.getElementById("radio02-list").style.display ="flex";
+      }else{
+        document.getElementById("radio02-list").style.display ="none";
+      }
+    });
+      
     function next() {
       if (card.className === 'open') {
         //card.addEventListener('transitionend', readworddata);
@@ -291,6 +311,7 @@ window.addEventListener("load", ()=>{
             elem.style.width = width/x*100 + "%";
             elem.innerHTML = Math.round(width/x*100,0) + "%";
             rokectSpeed = rokectSpeed + (width/x*100)/20; //max-speed:200
+            //alert(rokectSpeed);
             particlesJsSpeed(rokectSpeed);
           }
         }
