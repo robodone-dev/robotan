@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">  
 <link rel="stylesheet" type="text/css" href="https://robodone-dev.github.io/robotan/style.css">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
-
 </head>
 
 <body>
@@ -22,6 +21,9 @@
   
 <div id="wrapper">
   <form name="radio_form">
+  <audio id="option_audio">
+    <source src="https://robodone-dev.github.io/robotan/カーソル移動11.mp3" type="audio/mp3">
+  </audio>
   <div class="radio02">
     <input name="mode" id="select1" value="1" type="radio">
     <label for="select1">アルファベット</label>
@@ -39,15 +41,20 @@
     <div id="card">
     <div id="card-front"></div>
     <div id="card-back"></div>
+    <audio id="card_audio">
+    <source src="https://robodone-dev.github.io/robotan/ゲージ回復3.mp3" type="audio/mp3">
+    </audio>
   </div>
   <div id="btn">つぎのカード</div>
+  <audio id="next_audio">
+    <source src="https://robodone-dev.github.io/robotan/ゲージ回復2.mp3" type="audio/mp3">
+  </audio>
   <div class="sub-help">カードをタップ：「↑」で答えチェック<br>「つぎのカード」ボタン：「→」で次のカード</div>
   <p id="tmpVal"></p>
   <p id="counter">0</p>
 <div id="myProgress">
   <div id="myBar">0%</div>
 </div>
-
 
 
 
