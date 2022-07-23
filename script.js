@@ -253,6 +253,12 @@ window.addEventListener("load", ()=>{
             // elem.innerHTML = width + "%";
           } else {
             //width++;
+            
+            // for(var q = 0; q < 5; q++){
+            //   var progress_tmp;
+            //   progress_tmp = progress_tmp + (width/x*100);
+            //   elem.style.width = progress_tmp + "%";
+            // }
             elem.style.width = width/x*100 + "%";
             elem.innerHTML = Math.round(width/x*100,0) + "%";
           }
@@ -270,6 +276,7 @@ const btnCloseModal = document.querySelector(".close-modal"); //modalを閉じ�
 const openModal = () => {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  finishAudio();
 };
 
 //modalとoverlayのhiddenクラスを追加する（modalとoverlayが見えないようにする）処理
@@ -319,20 +326,27 @@ function backgroundColor4() {
 function cardAudio() {
     var cardAudio = document.getElementById('card_audio'); //連続クリックに対応
     cardAudio.currentTime = 0;
-    cardAudio.load();
+    cardAudio.load(); //safariへの対応用
     cardAudio.play(); //クリックしたら音を再生
 }
 
 function optionAudio() {
     var optionAudio = document.getElementById('option_audio'); //連続クリックに対応
     optionAudio.currentTime = 0;
-    optionAudio.load();
+    optionAudio.load();  //safariへの対応用
     optionAudio.play(); //クリックしたら音を再生
 }
 
 function nextAudio() {
     var nextAudio = document.getElementById('next_audio');
     nextAudio.currentTime = 0; //連続クリックに対応
-    nextAudio.load();
+    nextAudio.load();  //safariへの対応用
     nextAudio.play(); //クリックしたら音を再生
+}
+
+function finishAudio() {
+    var finishAudio = document.getElementById('finish_audio');
+    finishAudio.currentTime = 0; //連続クリックに対応
+    finishAudio.load();  //safariへの対応用
+    finishAudio.play(); //クリックしたら音を再生
 }
