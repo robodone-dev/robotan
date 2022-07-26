@@ -99,7 +99,6 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
-      document.getElementById("radio02-list").style.display ="none";
     });
     select2.addEventListener('input',function(){
       //alert("select2");
@@ -117,7 +116,6 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
-      document.getElementById("radio02-list").style.display ="none";
     });
     select3.addEventListener('input',function(){
       //alert("select3");
@@ -132,7 +130,6 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
-      document.getElementById("radio02-list").style.display ="none";
     });
     select4.addEventListener('input',function(){
       //alert("select4");
@@ -147,7 +144,6 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
-      document.getElementById("radio02-list").style.display ="none";
     });
    
     card.addEventListener('click', function() {
@@ -169,11 +165,7 @@ window.addEventListener("load", ()=>{
     });
   
     optionButtun.addEventListener('change',function(){
-      if(optionButtun.checked){
-        document.getElementById("radio02-list").style.display ="flex";
-      }else{
-        document.getElementById("radio02-list").style.display ="none";
-      }
+      openModeModal();
     });
       
     function next() {
@@ -320,15 +312,25 @@ window.addEventListener("load", ()=>{
   })();
 
 const modal = document.querySelector(".modal"); //modalを指定
+const modeModal = document.querySelector(".mode-modal"); //modalを指定
 const overlay = document.querySelector(".overlay"); //overlayを指定
+const overlayWhite = document.querySelector(".overlay-white"); //overlayを指定
 const btnOpenModal = document.querySelector(".show-modal"); //modalを開くボタンを指定
+const btnOpenModeModal = document.querySelector(".show-mode-modal"); //modalを開くボタンを指定
 const btnCloseModal = document.querySelector(".close-modal"); //modalを閉じるボタンを指定
+const btnCloseModeModal = document.querySelector(".close-mode-modal"); //modalを閉じるボタンを指定
 
 //modalとoverlayのhiddenクラスを消す（modalとoverlayが見えるようにする）処理
 const openModal = () => {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
   finishAudio();
+};
+
+const openModeModal = () => {
+  modeModal.classList.remove("hidden");
+  overlayWhite.classList.remove("hidden");
+  modeSelectAudio();
 };
 
 //modalとoverlayのhiddenクラスを追加する（modalとoverlayが見えないようにする）処理
@@ -338,9 +340,16 @@ const closeModal = () => {
   doReload();
 };
 
+const closeModeModal = () => {
+  modeModal.classList.add("hidden");
+  overlayWhite.classList.add("hidden");
+  doReload();
+};
+
 //modalの開くボタンと閉じるボタンをクリックした時の処理
-btnOpenModal.addEventListener("click", openModal);
+//btnOpenModal.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
+btnCloseModeModal.addEventListener("click", closeModeModal);
 
 function doReload() {
     // reloadメソッドによりページをリロード
@@ -402,3 +411,12 @@ function finishAudio() {
     finishAudio.load();  //safariへの対応用
     finishAudio.play(); //クリックしたら音を再生
 }
+
+function modeSelectAudio() {
+    var modeSelectAudio = document.getElementById('mode_select_audio');
+    modeSelectAudio.currentTime = 0; //連続クリックに対応
+    modeSelectAudio.load();  //safariへの対応用
+    modeSelectAudio.play(); //クリックしたら音を再生
+}
+
+
