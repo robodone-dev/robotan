@@ -343,7 +343,6 @@ const closeModal = () => {
 const closeModeModal = () => {
   modeModal.classList.add("hidden");
   overlayWhite.classList.add("hidden");
-  doReload();
 };
 
 //modalの開くボタンと閉じるボタンをクリックした時の処理
