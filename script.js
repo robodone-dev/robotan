@@ -150,7 +150,6 @@ window.addEventListener("load", ()=>{
       flip();
     });
   
-    card.addEventListener('touchmove', next);
   
     btn.addEventListener('click', function() {
       //alert(counter.innerHTML);
