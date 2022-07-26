@@ -13,6 +13,7 @@
 <body>
   <div id="particles-js"></div>
   <div class="overlay hidden"></div> <!-- overlay -->
+  <div class="overlay-white hidden"></div> <!-- overlay -->
 
   <button class="show-modal"></button> <!-- モーダルを表示されるボタン -->
   <div class="modal hidden">
@@ -24,14 +25,18 @@
     <source src="https://robodone-dev.github.io/robotan/Phrase02-1.mp3" type="audio/mp3">
   </audio>
   
-  
-  
-<div id="wrapper">
-  <form name="radio_form">
+    <button class="show-mode-modal"></button> <!-- モーダルを表示されるボタン -->
+  <div class="mode-modal hidden">
+    <!-- モーダル-->
+    <button class="close-mode-modal">&times;</button> <!-- モーダルを閉じるボタン -->
+      <form name="radio_form">
   <audio id="option_audio">
     <source src="https://robodone-dev.github.io/robotan/カーソル移動11.mp3" type="audio/mp3">
   </audio>
-  <div class="radio02 active" id="radio02-list">
+   <audio id="mode_select_audio">
+    <source src="https://robodone-dev.github.io/robotan/決定ボタンを押す42.mp3" type="audio/mp3">
+  </audio>
+  <div class="radio02" id="radio02-list">
     <input name="mode" id="select1" value="1" type="radio">
     <label for="select1">アルファベット</label>
     <input name="mode" id="select2" value="2" type="radio">
@@ -42,6 +47,11 @@
     <label for="select4">エクストラ</label>
   </div>
   </form>
+  </div>
+  
+  
+  
+<div id="wrapper">
    
   <p id="total-word-count">0</p>
   <div class="sub-text">カードをタップして答えをチェック！</div>
