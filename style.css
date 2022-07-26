@@ -263,7 +263,7 @@ body{
   width: auto;
   color: rgb(255, 0, 0);
   background-color: white;
-  padding: 2rem;
+  padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);   /* modalに影を作る */
   z-index: 10;           /* z-indexでmodalを一番上に位置させる */
@@ -277,7 +277,7 @@ body{
   width: auto;
   color: rgb(255, 0, 0);
   background-color: white;
-  padding: 2rem;
+  padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);   /* modalに影を作る */
   z-index: 10;           /* z-indexでmodalを一番上に位置させる */
