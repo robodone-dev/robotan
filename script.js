@@ -302,7 +302,7 @@ window.addEventListener("load", ()=>{
             // }
             elem.style.width = width/x*100 + "%";
             elem.innerHTML = Math.round(width/x*100,0) + "%";
-            rokectSpeed = rokectSpeed + (width/x*100)/20; //max-speed:200
+            rokectSpeed = rokectSpeed + (width/x*100)/10; //max-speed:200
             //alert(rokectSpeed);
             particlesJsSpeed(rokectSpeed);
           }
