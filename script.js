@@ -41,7 +41,7 @@ window.addEventListener("load", ()=>{
     // 起動時の処理
     counter = document.getElementById("counter");
     btnAdd = document.getElementById("btnAdd");
-  　　　　openModeModal();
+    openModeModal();
 
     n = 0;
  
@@ -100,6 +100,7 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
+      closeModeModal();
     });
     select2.addEventListener('input',function(){
       //alert("select2");
@@ -117,6 +118,7 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
+      closeModeModal();
     });
     select3.addEventListener('input',function(){
       //alert("select3");
@@ -131,6 +133,7 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
+      closeModeModal();
     });
     select4.addEventListener('input',function(){
       //alert("select4");
@@ -145,12 +148,14 @@ window.addEventListener("load", ()=>{
       countReset();
       randoms.length = 0;
       rokectSpeed=0;
+      closeModeModal();
     });
    
     card.addEventListener('click', function() {
       flip();
     });
   
+    card.addEventListener('touchmove', next);
   
     btn.addEventListener('click', function() {
       //alert(counter.innerHTML);
@@ -160,6 +165,7 @@ window.addEventListener("load", ()=>{
       
       if(counter.innerHTML >= Number(countx)-1){
         openModal();
+        
       } else {
         next();
       }
@@ -237,17 +243,19 @@ window.addEventListener("load", ()=>{
     readworddata();
     //スプレッドシートからAPIで読み込み
 
-    window.addEventListener('keyup', function(e) {
-      // e.keyCode
-      // f: 70
-      // n: 78
-      // console.log(e.keyCode);
-      if (e.keyCode === 38) {
-        flip();
-      } else if (e.keyCode === 39) {
-        next();
-      }
-    });
+    // window.addEventListener('keyup', function(e) {
+    //   // e.keyCode
+    //   // f: 70
+    //   // n: 78
+    //   // console.log(e.keyCode);
+    //   if (e.keyCode === 38) {
+    //     flip();
+    //   } else if (e.keyCode === 39) {
+    //     next();
+    //   }
+    // });
+  
+    
   
     window.addEventListener("load", ()=>{
     // 起動時の処理
